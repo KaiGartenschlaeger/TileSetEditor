@@ -1,0 +1,7 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/.vs/TileSetEditor/v15
+/TileSetEditor/bin/Debug
+/TileSetEditor/obj/Debug
