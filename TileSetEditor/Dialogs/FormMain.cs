@@ -211,22 +211,26 @@ namespace TileSetEditor.Dialogs
         {
             if (tileset.SourceImage != null)
             {
+                var tilesCountX = tileset.SourceImage.Width / tileset.TileSize.Width;
+                var tilesCountY = tileset.SourceImage.Height / tileset.TileSize.Height;
+
                 lblTilesetInfo.Show();
-                lblTilesetInfo.Text = string.Format("Grafik: {0} x {1} / {2} x {3}",
+                lblTilesetInfo.Text = string.Format("{0} x {1} / {2} x {3}",
                     tileset.SourceImage.Width,
                     tileset.SourceImage.Height,
-                    tileset.SourceImage.Width / tileset.TileSize.Width,
-                    tileset.SourceImage.Height / tileset.TileSize.Height);
+                    tilesCountX,
+                    tilesCountY);
 
                 lblSelectedPos.Show();
-                lblSelectedPos.Text = string.Format("Position: {0}, {1} / {2}, {3}",
+                lblSelectedPos.Text = string.Format("{0}, {1} / {2}, {3} / {4:n0}",
                     tileset.SelectedTiles.X,
                     tileset.SelectedTiles.Y,
                     tileset.Selection.Left,
-                    tileset.Selection.Top);
+                    tileset.Selection.Top,
+                    tileset.SelectedTiles.Top * tilesCountX + tileset.SelectedTiles.Left);
 
                 lblSelectedSize.Show();
-                lblSelectedSize.Text = string.Format("Auswahl: {0} x {1} / {2} x {3}",
+                lblSelectedSize.Text = string.Format("{0} x {1} / {2} x {3}",
                     tileset.SelectedTiles.Width,
                     tileset.SelectedTiles.Height,
                     tileset.Selection.Width,
